@@ -1,0 +1,7 @@
+pollutant_id,name,formula,unit,primary_source,drives_aqi
+PM25,Fine particulate matter,PM2.5,µg/m³,"Traffic, combustion, secondary aerosol",True
+PM10,Inhalable particulate matter,PM10,µg/m³,"Road dust, construction, sea salt, PM2.5",True
+NO2,Nitrogen dioxide,NO2,µg/m³,Vehicle exhaust,True
+O3,Ozone,O3,µg/m³,"Photochemistry, suppressed by fresh NO",True
+SO2,Sulfur dioxide,SO2,µg/m³,"Port fuel, industry, some diesel",True
+CO,Carbon monoxide,CO,mg/m³,"Incomplete combustion, gasoline traffic",True

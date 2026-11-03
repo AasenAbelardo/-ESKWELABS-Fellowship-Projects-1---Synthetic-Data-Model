@@ -1,0 +1,13 @@
+station_id,station_name,city,district,station_type,latitude,longitude,elevation_m,commissioned_on,operator
+STA-EDSA,EDSA–Guadalupe,Makati,Guadalupe,roadside,14.5667,121.0456,18,2016-03-01,Synthetic Metro Manila Airshed
+STA-QCH,Quezon City Hall,Quezon City,Diliman,urban background,14.6488,121.0509,32,2014-07-15,Synthetic Metro Manila Airshed
+STA-MNL,Manila City Hall,Manila,Ermita,urban center,14.5896,120.9816,10,2013-01-20,Synthetic Metro Manila Airshed
+STA-PRT,Manila Port,Manila,Tondo,industrial port,14.5831,120.9614,5,2015-11-02,Synthetic Metro Manila Airshed
+STA-MKT,Makati CBD,Makati,Ayala,commercial roadside,14.5547,121.0244,18,2017-05-08,Synthetic Metro Manila Airshed
+STA-PSG,Pasig Rotonda,Pasig,Caniogan,mixed roadside,14.5758,121.0851,16,2018-02-12,Synthetic Metro Manila Airshed
+STA-MRK,Marikina Riverpark,Marikina,Santa Elena,valley residential,14.6507,121.1029,14,2018-09-01,Synthetic Metro Manila Airshed
+STA-LPI,Las Piñas Coastal,Las Piñas,Pulanglupa,coastal background,14.4445,120.9939,8,2019-04-18,Synthetic Metro Manila Airshed
+STA-VAL,Valenzuela Industrial,Valenzuela,Karuhatan,industrial,14.7004,120.983,12,2015-06-22,Synthetic Metro Manila Airshed
+STA-ANT,Antipolo Upland,Antipolo,San Roque,upland background,14.6255,121.2142,210,2019-10-09,Synthetic Metro Manila Airshed
+STA-BGC,Bonifacio Global City,Taguig,Fort Bonifacio,commercial,14.5515,121.0496,16,2020-01-15,Synthetic Metro Manila Airshed
+STA-NAIA,NAIA Terminal,Pasay,Villamor,airport roadside,14.5086,121.0198,15,2016-08-30,Synthetic Metro Manila Airshed
