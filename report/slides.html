@@ -1,0 +1,154 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>SD-147 slides</title><style>
+@page { size: 13.333in 7.5in; margin: 0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; padding: 0; background: #F6F1E8; color: #1C1917; }
+body { font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif; }
+.slide {
+  width: 13.333in; height: 7.5in; padding: 0.42in 0.58in 0.36in;
+  page-break-after: always; break-after: page; overflow: hidden;
+  display: flex; flex-direction: column; position: relative;
+}
+.slide:last-child { page-break-after: auto; break-after: auto; }
+h1, h2, .giant, .num b, .pill b, .force h3 {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: normal;
+}
+.kicker {
+  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #0F6E6B; font-weight: 600; margin: 0;
+}
+h1 { font-size: 68px; line-height: 0.94; letter-spacing: -0.03em; margin: 0.18in 0 0; }
+h2 { font-size: 34px; line-height: 1.02; letter-spacing: -0.02em; margin: 0.08in 0 0; }
+.deck { font-size: 22px; line-height: 1.35; max-width: 10.2in; margin: 0.18in 0 0; color: #292524; }
+.sub { margin-top: auto; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: #78716C; }
+img.fig { width: 100%; max-height: 5.35in; object-fit: contain; object-position: left center; margin-top: 0.08in; }
+.caption { margin-top: auto; font-size: 18px; line-height: 1.35; max-width: 12in; padding-top: 0.08in; }
+.pills { display: flex; gap: 0.16in; margin-top: 0.42in; }
+.pill { flex: 1; background: #EFE8DC; border-radius: 12px; padding: 0.28in 0.2in 0.24in; }
+.pill em { display: block; font-style: normal; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #78716C; }
+.pill b { display: block; margin-top: 0.12in; font-size: 34px; line-height: 1; }
+.pill span { display: block; margin-top: 0.1in; font-size: 15px; line-height: 1.3; color: #44403C; }
+.forces { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; margin-top: 0.28in; }
+.force { background: #EFE8DC; border-radius: 12px; padding: 0.22in 0.26in 0.2in; }
+.force h3 { margin: 0; font-size: 28px; }
+.force p { margin: 0.08in 0 0; font-size: 16px; line-height: 1.35; color: #44403C; }
+.aside { margin-top: auto; font-size: 18px; line-height: 1.35; }
+.nums { display: grid; grid-template-columns: 1fr 1fr; gap: 0.28in 0.6in; margin-top: 0.34in; }
+.num b { display: block; font-size: 64px; line-height: 0.9; }
+.num span { display: block; margin-top: 0.08in; font-size: 18px; line-height: 1.3; max-width: 5.2in; color: #292524; }
+.limits { margin-top: 0.28in; }
+.limits div { display: flex; gap: 0.24in; align-items: baseline; margin: 0 0 0.2in; }
+.limits b { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: normal; font-size: 28px; color: #C2412D; width: 0.6in; }
+.limits p { margin: 0; font-size: 22px; line-height: 1.3; }
+.split { display: flex; gap: 0.32in; margin-top: 0.12in; min-height: 0; flex: 1; }
+.split img { width: 8.15in; height: 5.7in; object-fit: contain; object-position: left top; }
+.split ol { list-style: none; margin: 0.15in 0 0; padding: 0; flex: 1; }
+.split li { margin: 0 0 0.22in; }
+.split strong { display: block; font-size: 18px; font-weight: 600; }
+.split span { display: block; margin-top: 0.03in; font-size: 14.5px; line-height: 1.3; color: #44403C; }
+.asks { margin: 0.28in 0 0; padding: 0; list-style: none; }
+.asks li { font-size: 22px; line-height: 1.25; margin: 0 0 0.16in; padding-left: 0.32in; position: relative; }
+.asks li::before { content: ""; position: absolute; left: 0; top: 0.16in; width: 0.14in; height: 0.14in; border-radius: 99px; background: #0F6E6B; }
+</style></head><body>
+    <section class="slide">
+      <p class="kicker">Eskwelabs EIF · Synthetic dataset · SD-147</p>
+      <h1>A year of<br>Metro Manila air.</h1>
+      <p class="deck">Twelve stations, every hour of 2024. Generated so a bad day, a clean ridge, and a broken sensor are obvious before anyone opens a table.</p>
+      <p class="sub">Not a DENR observation · not a regulatory AQI · seed 147</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">What was built</p>
+      <h2>Five tables, one airshed.</h2>
+      <div class="pills">
+        <div class="pill"><em>Stations</em><b>12</b><span>Landmark sites, from the port to the ridge.</span></div>
+        <div class="pill"><em>Pollutants</em><b>6</b><span>PM2.5, PM10, NO2, ozone, SO2, CO.</span></div>
+        <div class="pill"><em>Readings</em><b>632,448</b><span>Every station, every pollutant, every hour.</span></div>
+        <div class="pill"><em>Weather</em><b>105,408</b><span>The rain and wind that move the particles.</span></div>
+        <div class="pill"><em>Alerts</em><b>749</b><span>Episodes where the index reached 101.</span></div>
+      </div>
+      <p class="caption">The audience is an urban-services analyst who has to decide which bad hour is real.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">How a concentration is made</p>
+      <h2>A baseline, a commute, a season, and a memory.</h2>
+      <div class="forces">
+        <div class="force"><h3>Traffic</h3><p>Bells at 08:00 and 18:30. Saturday is quieter, Sunday quieter still, and a holiday cuts the wave to 0.55.</p></div>
+        <div class="force"><h3>Dry season</h3><p>A cosine that peaks in early February. January through April is the dirty block on every roadside row.</p></div>
+        <div class="force"><h3>Rain and wind</h3><p>Rain washes particles out. Wind disperses them, then flattens. A typhoon is not allowed to hit the instrument floor.</p></div>
+        <div class="force"><h3>Memory</h3><p>Two autoregressive shocks, one shared by the airshed and one local, so a dirty hour is usually followed by another.</p></div>
+      </div>
+      <p class="aside">Ozone does the opposite of the traffic gases. It rises toward 14:00, and it falls wherever fresh NO2 is high.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">One year, two sites</p>
+      <h2>Same calendar. Not the same color.</h2>
+      <img class="fig" src="figures/calendars.png" alt="EDSA and Antipolo calendars">
+      <p class="caption">EDSA’s median reporting day is 36 µg/m³, and 53% of those days sit above moderate. Antipolo’s median day is 11. Grey is a frozen sensor. Teal is the typhoon.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">Where the year was dirtiest</p>
+      <h2>The roads and the plants. Then a long drop to the ridge.</h2>
+      <img class="fig" src="figures/map.png" alt="Map and ranking">
+      <p class="caption">Valenzuela 39, EDSA 38, Antipolo 12 µg/m³. Larger markers opened more episodes. Antipolo and Las Piñas open none.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">The shape of a day</p>
+      <h2>Commute, Sunday, afternoon.</h2>
+      <img class="fig" src="figures/diurnal.png" alt="Diurnal curves">
+      <p class="caption">Sunday roadside NO2 falls from 58 to 39 µg/m³. Ozone at 14:00 is 94 against 29 at 06:00, and it opposes NO2 at r = -0.64.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">The dry season</p>
+      <h2>January through April, on every roadside row.</h2>
+      <img class="fig" src="figures/season.png" alt="Monthly grid">
+      <p class="caption">The wet months cool the grid. August at EDSA is only the hours the sensor was actually reporting.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">What clears the basin</p>
+      <h2>Rain first. Wind second. Then wind stops helping.</h2>
+      <img class="fig" src="figures/washout.png" alt="Washout">
+      <p class="caption">A dry day sits near 32 µg/m³. A day with 40 mm or more sits near 9. Daily r with rain is -0.18, with wind -0.46.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">Not a random tail</p>
+      <h2>Four events were written in.</h2>
+      <div class="split">
+        <img src="figures/episodes.png" alt="Edge cases">
+        <ol>
+          <li><strong>Fireworks</strong><span>EDSA, New Year morning, averages 333 µg/m³. A quiet week’s median hour is 39.</span></li>
+          <li><strong>Valenzuela dust</strong><span>PM10/PM2.5 goes from 1.9 to 3.4. The gases do not move. Weekends rest.</span></li>
+          <li><strong>Frozen sensor</strong><span>168 hours at EDSA stuck on 17 µg/m³, flagged. Alerts ignore it.</span></li>
+          <li><strong>Typhoon</strong><span>EDSA falls to 10 µg/m³, from 30 in early September. Not a named storm.</span></li>
+        </ol>
+      </div>
+    </section>
+    <section class="slide">
+      <p class="kicker">Alerts</p>
+      <h2>Episodes, not single bad hours.</h2>
+      <div class="nums">
+        <div class="num"><b>749</b><span>episodes opened once the index reached 101.</span></div>
+        <div class="num"><b>15 h</b><span>median length. The longest, at Valenzuela, holds for 23 days.</span></div>
+        <div class="num"><b>71%</b><span>are driven by PM2.5. Ozone opens none. An eight-hour mean keeps the afternoon spike from qualifying.</span></div>
+        <div class="num"><b>192</b><span>highest index, at EDSA–Guadalupe on 1 January. Unhealthy. Never hazardous.</span></div>
+      </div>
+    </section>
+    <section class="slide">
+      <p class="kicker">Read it with the flag on</p>
+      <h2>Three ways to lie with this file.</h2>
+      <div class="limits">
+        <div><b>01</b><p>Call it DENR data. It is a synthetic airshed with landmark coordinates.</p></div>
+        <div><b>02</b><p>Call the index a legal AQI. The breakpoints are the US EPA table, on trailing means, not DENR’s.</p></div>
+        <div><b>03</b><p>Average August at EDSA without the quality flag. The frozen week becomes a clean week that never happened.</p></div>
+      </div>
+      <p class="caption">Firework nights look like combustion. The Valenzuela job inflates PM10 only. Both are features.</p>
+    </section>
+    <section class="slide">
+      <p class="kicker">What to take from it</p>
+      <h2>The basin has a season. The instrument has a week.</h2>
+      <ul class="asks">
+        <li>Which bad months are dry-season traffic, and which days are the sensor.</li>
+        <li>How far a Sunday, a rain day, and a ridge station sit below EDSA.</li>
+        <li>When an alert is particles, and when it is the evening NO2 peak.</li>
+      </ul>
+      <p class="sub">Seed 147 rebuilds every row · notebook, assumptions.md, five CSVs</p>
+    </section>
+    </body></html>

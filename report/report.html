@@ -1,0 +1,236 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>SD-147 · A year of Metro Manila air</title><style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; padding: 0; background: #F6F1E8; color: #1C1917; }
+body { counter-reset: pg; font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif; }
+.sheet {
+  width: 210mm; min-height: 297mm; padding: 14mm 16mm 13mm;
+  page-break-after: always; break-after: page; position: relative;
+}
+.sheet:last-child { page-break-after: auto; break-after: auto; }
+.sheet:not(.cover) { counter-increment: pg; }
+.run {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #78716C; margin-bottom: 8mm;
+}
+.folio::before { content: counter(pg, decimal-leading-zero); }
+h1, h2, .stat b, .cover-year { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: normal; }
+h2 { font-size: 28px; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 4mm; }
+p { font-size: 12px; line-height: 1.48; margin: 0 0 3.2mm; }
+.lede { font-size: 14.5px; line-height: 1.4; max-width: 42em; }
+.quiet { color: #44403C; }
+.small { font-size: 10.5px; line-height: 1.45; color: #44403C; }
+.kicker {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #0F6E6B; font-weight: 600; margin: 0 0 6mm;
+}
+.rule { height: 1px; background: #E4DDD2; border: 0; margin: 6mm 0; }
+.cover { display: flex; flex-direction: column; }
+.cover h1 { font-size: 64px; line-height: 0.92; letter-spacing: -0.03em; margin: 8mm 0 6mm; }
+.cover .deck { font-size: 18px; line-height: 1.35; max-width: 34em; color: #292524; }
+.stats { display: flex; gap: 10mm; margin-top: auto; padding-top: 10mm; }
+.stat b { display: block; font-size: 34px; line-height: 1; }
+.stat span { display: block; margin-top: 1.5mm; font-size: 11px; letter-spacing: 0.04em; color: #78716C; }
+.swatches { display: flex; gap: 2.5mm; margin-top: 8mm; }
+.swatches span {
+  font-size: 9px; letter-spacing: 0.04em; color: #1C1917;
+  padding: 1.4mm 2.4mm 1.2mm; border-radius: 99px;
+}
+.disclaimer { margin-top: 6mm; font-size: 11px; color: #78716C; }
+.columns { display: flex; gap: 8mm; }
+.columns .main { flex: 1.4; }
+.columns .side { flex: 0.85; }
+.card, .note {
+  background: #EFE8DC; border-radius: 8px; padding: 4mm 4.5mm 3.5mm; margin: 0 0 3mm;
+}
+.card h3 { margin: 0 0 1.2mm; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #0F6E6B; }
+.card p, .note p { font-size: 11.5px; margin: 0; }
+pre {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 13px; line-height: 1.45; background: #EFE8DC;
+  border-radius: 8px; padding: 5mm 6mm; margin: 2mm 0 4mm; white-space: pre;
+}
+table { width: 100%; border-collapse: collapse; margin-top: 2mm; }
+th {
+  text-align: left; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #78716C; font-weight: 600; padding: 0 2mm 2mm 0; border-bottom: 1px solid #E4DDD2;
+}
+td { font-size: 11.5px; padding: 1.7mm 2mm 1.7mm 0; border-bottom: 1px solid #E4DDD2; vertical-align: middle; }
+td.place { color: #44403C; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; width: 12mm; }
+td.meter { width: 28mm; }
+td.meter span { display: block; height: 6px; border-radius: 99px; background: #C2412D; }
+img.full { width: 100%; height: auto; display: block; margin: 1mm 0 3mm; }
+img.drivers { width: 118mm; height: auto; }
+.pull { border-left: 2.5px solid #C2412D; padding-left: 4mm; margin: 4mm 0; }
+.pull p { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 16px; line-height: 1.3; }
+ol.edges { margin: 2mm 0 0; padding: 0; list-style: none; }
+ol.edges li { display: flex; gap: 4mm; margin: 0 0 3mm; }
+ol.edges b {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 18px; font-weight: normal; color: #C2412D; width: 8mm; flex: none;
+}
+ol.edges p { margin: 0; }
+.end { margin-top: 6mm; }
+</style></head><body>
+    <section class="sheet cover">
+      <p class="kicker">Eskwelabs EIF · Synthetic dataset · SD-147</p>
+      <h1>A year of<br>Metro Manila air.</h1>
+      <p class="deck">Twelve stations, every hour of 2024, generated so a bad day, a clean ridge, and a broken sensor are obvious before anyone opens a table.</p>
+      <div class="swatches">
+        <span style="background:#2F9E78">Good</span>
+        <span style="background:#E0B83A">Moderate</span>
+        <span style="background:#E08A3C">Sensitive</span>
+        <span style="background:#D4534A">Unhealthy</span>
+        <span style="background:#8E4A86">Very unhealthy</span>
+        <span style="background:#6E2434;color:#F6F1E8">Hazardous</span>
+        <span style="background:#D4CFC6">Sensor offline</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>632,448</b><span>hourly readings</span></div>
+        <div class="stat"><b>749</b><span>alert episodes</span></div>
+        <div class="stat"><b>147</b><span>the seed that rebuilds every row</span></div>
+      </div>
+      <p class="disclaimer">Synthetic Metro Manila Airshed. Not a DENR-EMB observation, and not a regulatory AQI. Aasen · Eskwelabs EIF fellowship.</p>
+    </section>
+    
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">The assignment</p>
+      <h2>A dashboard has to know which bad hour is real.</h2>
+      <p class="lede">SD-147 is a difficulty-1 synthetic dataset for an urban-services analyst. The job is to decide where the air is bad, when it is bad, and which hours should not be trusted. The pictures are the point. The tables exist so the pictures can be checked.</p>
+      <div class="columns">
+        <div class="main">
+          <p>Five tables describe one airshed. Coordinates are approximate landmark locations, close enough that a map has Metro Manila’s shape. The operator on every station is Synthetic Metro Manila Airshed, on purpose.</p>
+          <p>Run All on <em>SD-147_urban_air_quality.ipynb</em> rewrites the CSVs from seed 147 and stops if a sanity check fails. Every coefficient that is only summarized here is written out in <em>assumptions.md</em>.</p>
+          <div class="pull"><p>Roadside EDSA and upland Antipolo share the year and do not share a color.</p></div>
+        </div>
+        <div class="side">
+          <div class="card"><h3>Stations · 12</h3><p>One row per site. Type, city, elevation, and a lat-lon that will sit still on a map.</p></div>
+          <div class="card"><h3>Pollutants · 6</h3><p>PM2.5, PM10, NO2, ozone, SO2, and CO, each with a unit and a reason it would move.</p></div>
+          <div class="card"><h3>Readings · 632,448</h3><p>Station × pollutant × hour. Quality is ok, telemetry_gap, or sensor_fault.</p></div>
+          <div class="card"><h3>Weather · 105,408</h3><p>Temperature, humidity, wind, rain, and pressure at the same hours.</p></div>
+          <div class="card"><h3>Alerts · 749</h3><p>An episode opens when the dashboard index reaches 101, and it records what drove it.</p></div>
+        </div>
+      </div>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">The airshed</p>
+      <h2>Industry and the big roads hold the year. The ridge does not.</h2>
+      <p>Annual mean PM2.5, using hours flagged ok. Marker-sized alert counts in the map later tell the same story: Valenzuela, EDSA, and Marikina’s valley work hardest. Antipolo, about 200 metres up, finishes at 12 µg/m³ against EDSA’s 38.</p>
+      <table>
+        <thead><tr><th>Station</th><th>City</th><th>Type</th><th style="text-align:right">PM2.5</th><th></th><th style="text-align:right">Alerts</th></tr></thead>
+        <tbody><tr><td>Valenzuela Industrial</td><td class='place'>Valenzuela</td><td class='place'>industrial</td><td class='num'>39</td><td class='meter'><span style='width:94.0%'></span></td><td class='num'>77</td></tr>
+<tr><td>EDSA–Guadalupe</td><td class='place'>Makati</td><td class='place'>roadside</td><td class='num'>38</td><td class='meter'><span style='width:91.0%'></span></td><td class='num'>153</td></tr>
+<tr><td>Marikina Riverpark</td><td class='place'>Marikina</td><td class='place'>valley residential</td><td class='num'>36</td><td class='meter'><span style='width:86.8%'></span></td><td class='num'>63</td></tr>
+<tr><td>Manila City Hall</td><td class='place'>Manila</td><td class='place'>urban center</td><td class='num'>33</td><td class='meter'><span style='width:79.0%'></span></td><td class='num'>73</td></tr>
+<tr><td>Manila Port</td><td class='place'>Manila</td><td class='place'>industrial port</td><td class='num'>32</td><td class='meter'><span style='width:76.7%'></span></td><td class='num'>61</td></tr>
+<tr><td>Pasig Rotonda</td><td class='place'>Pasig</td><td class='place'>mixed roadside</td><td class='num'>31</td><td class='meter'><span style='width:74.8%'></span></td><td class='num'>95</td></tr>
+<tr><td>Makati CBD</td><td class='place'>Makati</td><td class='place'>commercial roadside</td><td class='num'>30</td><td class='meter'><span style='width:70.5%'></span></td><td class='num'>120</td></tr>
+<tr><td>NAIA Terminal</td><td class='place'>Pasay</td><td class='place'>airport roadside</td><td class='num'>27</td><td class='meter'><span style='width:63.2%'></span></td><td class='num'>66</td></tr>
+<tr><td>Quezon City Hall</td><td class='place'>Quezon City</td><td class='place'>urban background</td><td class='num'>24</td><td class='meter'><span style='width:58.3%'></span></td><td class='num'>32</td></tr>
+<tr><td>Bonifacio Global City</td><td class='place'>Taguig</td><td class='place'>commercial</td><td class='num'>21</td><td class='meter'><span style='width:49.4%'></span></td><td class='num'>9</td></tr>
+<tr><td>Las Piñas Coastal</td><td class='place'>Las Piñas</td><td class='place'>coastal background</td><td class='num'>16</td><td class='meter'><span style='width:38.5%'></span></td><td class='num'>0</td></tr>
+<tr><td>Antipolo Upland</td><td class='place'>Antipolo</td><td class='place'>upland background</td><td class='num'>12</td><td class='meter'><span style='width:27.5%'></span></td><td class='num'>0</td></tr></tbody>
+      </table>
+      <p class="small" style="margin-top:3mm">Means are micrograms per cubic metre. The bar is the same annual mean, scaled to 42. Alerts are episodes, not hours.</p>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">The process</p>
+      <h2>Every concentration is lognormal, with a memory.</h2>
+      <p class="lede">Under the log is a station baseline, then a few shared drivers, then two slow shocks so a dirty hour is usually followed by another one. Neighbouring hours look like weather, not like white noise.</p>
+      <div class="columns">
+        <div class="main">
+          <pre>log PM2.5  =  log(baseline)
+            +  0.30 × dry season
+            +  0.38 × traffic
+            −  0.20 × log(1 + rain)
+            −  0.10 × wind, capped at 6 m/s
+            +  a regional bad-air day
+            +  a shock local to the station</pre>
+          <p>Traffic is two bells, at 08:00 and 18:30, with a night floor. Saturday multiplies it by 0.84, Sunday by 0.68, a public holiday by 0.55. The dry-season cosine peaks in early February. Rain arrives in wet-season clusters. Wind disperses, and then stops helping once it is already blowing hard. The cap is there so a typhoon does not drive the instrument to its floor.</p>
+        </div>
+        <div class="side">
+          <div class="card"><h3>PM10</h3><p>PM2.5 plus coarse dust. After every edit it is forced to at least 1.04 × the fine fraction. The ratio is what breaks during construction.</p></div>
+          <div class="card"><h3>NO2 and CO</h3><p>The traffic gases. NO2 follows the commute with coefficient 0.62. CO is the same shape, not a second story.</p></div>
+          <div class="card"><h3>Ozone</h3><p>Rises toward 14:00 and is cut where fresh NO2 is high. That is why Antipolo is the ozone station and EDSA is the particle station.</p></div>
+          <div class="card"><h3>SO2</h3><p>Mostly the baseline. The port and Valenzuela carry it. Traffic only nudges it.</p></div>
+        </div>
+      </div>
+      <p class="small">About 0.4% of the hours that would otherwise be valid are ordinary telemetry gaps, missing independently by pollutant. Reported precision is one decimal, two for CO. Physical clips keep every species inside a range a real instrument could print.</p>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">One year, two sites</p>
+      <h2>The dry months are orange at the roadside and green on the ridge.</h2>
+      <img class="full" src="figures/calendars.png" alt="Calendars of daily PM2.5 at EDSA and Antipolo">
+      <p>Color is the daily mean of PM2.5, painted with the US EPA 24-hour breakpoints. Good runs through 12.0 µg/m³, moderate through 35.4, unhealthy for sensitive groups through 55.4. Grey is not a clean day. It is a day whose PM channel was frozen for at least twelve hours.</p>
+      <p>On the days EDSA was actually reporting, the median day is 36 µg/m³. 53% of those days sit above the moderate breakpoint, and 8% sit above 55.4. The worst day reaches 120. Antipolo’s median day is 11, and its worst day is 23. The teal stripe in September is the typhoon. The red edges of the year are fireworks.</p>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">Where the year was dirtiest</p>
+      <h2>The same mean, once as a map and once as a ranking.</h2>
+      <img class="full" src="figures/map.png" alt="Station map and ranked annual PM2.5">
+      <p>Color is the annual mean. On the map, a larger marker opened more alert episodes. Valenzuela leads at 39 µg/m³, EDSA is next at 38, and the episodes pile up on those same roads: EDSA–Guadalupe (153), Makati CBD (120), Pasig Rotonda (95). Antipolo and Las Piñas open none. Nothing in the north of the basin is as clean as the ridge, and nothing on the ridge looks like EDSA.</p>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">The shape of a day</p>
+      <h2>Particles belong to the commute. Ozone belongs to the afternoon.</h2>
+      <img class="full" src="figures/diurnal.png" alt="Diurnal curves for PM2.5, NO2, and ozone">
+      <p>The line is the median hour and the band is the middle half of hours. At the roadside, PM2.5 and NO2 rise for the morning peak and again after 18:00. Sunday cuts roadside NO2 from 58 to 39 µg/m³, a 33% drop across EDSA, Makati, Pasig, and NAIA. Both peaks nearly disappear at Antipolo.</p>
+      <p>Ozone does the opposite. Across the airshed the 14:00 mean is 94 µg/m³ against 29 at 06:00. On roadside hours from 10:00 to 16:00, ozone and NO2 correlate at -0.64. Fresh exhaust titrates the ozone that sunlight is trying to make.</p>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">Dry season, then the wash</p>
+      <h2>January through April is the dark block.</h2>
+      <img class="full" src="figures/season.png" alt="Monthly mean PM2.5 by station">
+      <p class="small">August at EDSA is only the hours the sensor was reporting. The frozen week is left out of the mean, and the calendar paints those days grey instead.</p>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">Rain, then wind</p>
+      <h2>A wet day is cleaner. Past a stiff breeze, more wind stops helping.</h2>
+      <img class="full" src="figures/washout.png" alt="PM2.5 against daily rain and wind">
+      <p>A dry day across the twelve stations sits near 32 µg/m³. The bars step down as the day gets wetter, and a day with 40 mm or more sits near 9. The daily correlation of PM2.5 with rainfall is -0.18, and with wind it is -0.46. PM2.5 and PM10 otherwise move together at r = 0.96, which is the correlation the construction week is designed to break.</p>
+      <div class="note"><p>Marikina is the local exception the model allows. On a calm night, wind under 1.6 m/s between 20:00 and 06:00, its PM2.5 log-mean is lifted by 0.18. That is a stand-in for drainage flow into the valley, and it is why a residential site can finish the year beside the industrial ones.</p></div>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">Written in, not drawn</p>
+      <h2>Four events are not tails of the distribution.</h2>
+      <img class="full" src="figures/episodes.png" alt="Four planted edge cases">
+      <ol class="edges">
+        <li><b>01</b><p><strong>Fireworks, fine mode.</strong> 1 January 00:00–05:00, the evening of 10 February, and the evening of 31 December. At EDSA the New Year window averages 333 µg/m³ of PM2.5, against a quiet January week whose median hour is 39. PM10 is lifted less, so the fine fraction dominates.</p></li>
+        <li><b>02</b><p><strong>Construction dust at Valenzuela.</strong> Weekdays 4–15 March, 07:00–17:00. PM2.5 is only nudged, by 1.18×. PM10 gains about 115 µg/m³. The gases are untouched, and the PM10/PM2.5 median goes from 1.9 to 3.4. Weekends rest.</p></li>
+        <li><b>03</b><p><strong>A frozen sensor at EDSA.</strong> 12–18 August, 168 hours, one repeated PM2.5 value of 17 µg/m³, flagged sensor_fault. PM10 is frozen with it. Ozone and NO2 keep reporting. Alerts ignore the frozen channels. 7 days on the calendar go grey.</p></li>
+        <li><b>04</b><p><strong>A typhoon, unnamed on purpose.</strong> 15 September 06:00 through 17 September 18:00, every station. Rain, wind, a cooler wetter air mass, and a further cut to every pollutant. EDSA’s PM2.5 mean in that window is 10 µg/m³, against 30 in the first ten days of September.</p></li>
+      </ol>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">The index</p>
+      <h2>749 episodes. Most of them are particles, and they last.</h2>
+      <div class="columns">
+        <div class="main">
+          <p>An alert opens when the dashboard index reaches 101 and closes when it falls back, or when the clock jumps by more than an hour and a half. The median episode runs 15 hours. The longest holds for 23 days at Valenzuela Industrial: a daily mean that rarely slips under the breakpoint, not a stuck sensor. The highest index in the year is 192, at EDSA–Guadalupe on 1 January.</p>
+          <p>PM2.5 drives 71% of episodes. By pollutant: PM2.5 533, NO2 216. Ozone never opens an episode. The index uses an eight-hour mean, so a single afternoon spike does not qualify.</p>
+          <p>660 episodes peak at Unhealthy for sensitive groups, and 89 peak at Unhealthy. The index never prints a hazardous day. Particles are judged on a trailing 24-hour mean, with at least 18 hours present. Ozone and CO use eight hours. NO2 and SO2 use the hour itself.</p>
+          <div class="pull"><p>This is a consistent dashboard index. It is the US EPA table, not DENR’s, and a partly filled window will overstate a legal AQI.</p></div>
+        </div>
+        <div class="side">
+          <img class="drivers" src="figures/drivers.png" alt="Alert episodes by driver pollutant">
+        </div>
+      </div>
+    </section>
+<section class="sheet"><header class="run"><span>SD-147 · Urban air quality</span><span class='folio'></span></header>
+      <p class="kicker">What the year will sit still for</p>
+      <h2>Sixteen checks pass. A few uses will still break it.</h2>
+      <p>The notebook refuses to finish unless concentrations stay non-negative, PM10 stays above PM2.5, the correlations point the right way, Sunday is quieter, the ridge is cleaner, and each planted event is still where it was put. The numbers above are those checks, read back from the CSVs rather than from the generator’s hopes.</p>
+      <div class="columns">
+        <div class="main">
+          <div class="card"><h3>Ask this of the tables</h3><p>Which stations and months sit above the 24-hour PM2.5 breakpoints, and how much of that is dry-season traffic. How far Sunday falls below a weekday. Whether rain and wind actually clear the basin once you look at days rather than hours. How long alerts last, and when the driver is particles rather than NO2.</p></div>
+          <div class="card"><h3>Three traps, left in on purpose</h3><p>Firework nights that look like combustion. A construction site that inflates PM10 only. A week in August at EDSA where the PM channel is a flat line. Drop the quality flag and that week becomes a clean week that never happened.</p></div>
+        </div>
+        <div class="side">
+          <div class="card"><h3>Left out</h3><p>No chemistry beyond the NO2 titration of ozone. No street canyon, no sea-breeze clock, no transboundary smoke except the three firework nights. Instrument drift, other than one frozen week and the random gaps, is not in the model.</p></div>
+          <div class="note"><p>2,491 readings (0.4%) are telemetry gaps. They are missing on purpose and should stay missing in any average.</p></div>
+        </div>
+      </div>
+      <p class="end quiet">Rebuild it with Run All. Seed 147 reproduces the files. Changing the seed changes every row, including the weather the edge cases sit on. The generator is src/aq_model.py. The full specification is assumptions.md.</p>
+    </section></body></html>
