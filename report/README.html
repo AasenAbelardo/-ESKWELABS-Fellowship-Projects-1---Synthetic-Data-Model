@@ -1,0 +1,118 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>README</title><style>
+@page {
+  size: A4;
+  margin: 16mm 16mm 18mm;
+  background: #F6F1E8;
+  @top-left {
+    content: "SD-147  ·  Urban air quality";
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #78716C;
+  }
+  @top-right {
+    content: "Eskwelabs EIF";
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0F6E6B;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 11px;
+    color: #78716C;
+  }
+}
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; background: #F6F1E8; color: #1C1917; }
+body { font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif; font-size: 12px; line-height: 1.5; }
+h1, h2, h3 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: normal; letter-spacing: -0.02em; page-break-after: avoid; break-after: avoid; }
+h1 { font-size: 34px; line-height: 1.05; margin: 2mm 0 5mm; }
+h2 { font-size: 22px; line-height: 1.15; margin: 8mm 0 3mm; }
+h3 { font-size: 16px; margin: 6mm 0 2mm; color: #0F6E6B; }
+p { margin: 0 0 3.2mm; }
+strong { font-weight: 600; }
+a { color: #0F6E6B; text-decoration: none; }
+code {
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: #EFE8DC;
+  padding: 0.05em 0.32em;
+  border-radius: 4px;
+}
+pre {
+  background: #EFE8DC;
+  border-radius: 8px;
+  padding: 4mm 5mm;
+  margin: 2mm 0 4mm;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  white-space: pre-wrap;
+}
+pre code { background: none; padding: 0; font-size: 11.5px; line-height: 1.45; }
+ul, ol { margin: 1mm 0 4mm; padding-left: 5.5mm; }
+li { margin: 0 0 1.6mm; page-break-inside: avoid; break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; page-break-inside: avoid; break-inside: avoid; }
+th {
+  text-align: left; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #78716C; font-weight: 600; padding: 0 3mm 2mm 0; border-bottom: 1px solid #C9C0B4;
+}
+td { font-size: 12px; padding: 2mm 3mm 2mm 0; border-bottom: 1px solid #E4DDD2; vertical-align: top; }
+td code { white-space: nowrap; }
+</style></head><body><h1>SD-147 · Urban air quality dashboard</h1>
+<p>A synthetic year of Metro Manila air, hourly, for twelve stations. Built as an Eskwelabs EIF <strong>Synthetic Dataset</strong> project: a notebook, the CSVs it writes, and a written record of every assumption.</p>
+<p>The pictures are the point. Roadside EDSA and upland Antipolo share a calendar and do not share a color. Rush hour, Sunday, rain, a firework night, a dust job, a frozen sensor, and a typhoon are all visible without opening the tables.</p>
+<p>This is not DENR-EMB data and it is not a regulatory AQI. Seed <code>147</code> reproduces the files exactly.</p>
+<h2>Run it</h2>
+<p>From the repo root, with Python 3.11+:</p>
+<pre><code class="language-bash">python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+jupyter notebook SD-147_urban_air_quality.ipynb
+</code></pre>
+<p>Run All. The notebook writes <code>data/*.csv</code> and stops if a sanity check fails. The full specification of the generator is in <a href="assumptions.md">assumptions.md</a>. The code is in <code>src/aq_model.py</code>.</p>
+<h2>Tables</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/stations.csv</code></td>
+<td>12 sites, with type, coordinates, elevation</td>
+</tr>
+<tr>
+<td><code>data/pollutants.csv</code></td>
+<td>PM2.5, PM10, NO2, ozone, SO2, CO, and their units</td>
+</tr>
+<tr>
+<td><code>data/readings.csv</code></td>
+<td>one row per station, pollutant, and hour, with a quality flag</td>
+</tr>
+<tr>
+<td><code>data/weather_proxies.csv</code></td>
+<td>temperature, humidity, wind, rain, pressure at the same hours</td>
+</tr>
+<tr>
+<td><code>data/alerts.csv</code></td>
+<td>episodes where the dashboard index reached 101</td>
+</tr>
+</tbody>
+</table>
+<p>Quality flags are <code>ok</code>, <code>telemetry_gap</code>, and <code>sensor_fault</code>.</p>
+<h2>What you can analyse with it</h2>
+<ul>
+<li>Which stations, and which months, sit above the 24-hour PM2.5 breakpoints, and how much of that is dry-season traffic rather than a bad instrument.</li>
+<li>The weekday rush-hour shape of PM2.5 and NO2 against the afternoon shape of ozone, and how far Sunday sits below a weekday at a roadside site.</li>
+<li>Whether rain and wind actually clear the basin, and by how much once you look at daily totals rather than single hours.</li>
+<li>How often alerts fire, how long they last, and when the driver is particles rather than NO2.</li>
+<li>Three data-quality traps a dashboard has to survive: firework nights that look like combustion, a construction site that inflates PM10 only, and a week in August at EDSA where the PM channel is a flat line.</li>
+</ul>
+<h2>What will break it</h2>
+<p>Changing the seed changes every row, including the planted edge cases, which are deterministic given the seed but sit on top of the random weather. Dropping <code>quality_flag</code> and averaging the August week at EDSA will report a clean week that never happened. Treating the index as a legal AQI will overstate it: particles are judged on a trailing 24-hour mean, and the breakpoint table is the US EPA table, not DENR's.</p></body></html>
